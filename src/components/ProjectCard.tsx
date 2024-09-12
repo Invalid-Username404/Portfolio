@@ -23,7 +23,7 @@ export function ProjectCard({
 }: ProjectCardProps) {
   return (
     <div
-      className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-[400px] group"
+      className="bg-white shadow-lg rounded-lg overflow-hidden transition-all duration-300 flex flex-col h-[400px] "
       style={{
         opacity: 0,
         transform: "translateY(50px)",
@@ -37,10 +37,10 @@ export function ProjectCard({
           layout="fill"
           objectFit="cover"
           priority={index < 3}
-          className="transition-transform duration-300 group-hover:scale-110"
+          className="transition-transform duration-300 "
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-80"></div>
-        <div className="absolute bottom-0 left-0 p-4 text-white transform transition-transform duration-300 group-hover:translate-y-[-10px]">
+        <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60 transition-opacity duration-300 "></div>
+        <div className="absolute bottom-0 left-0 p-4 text-white transform transition-transform duration-300 ">
           <h3 className="text-xl font-semibold mb-1">{name}</h3>
           <span className="inline-block bg-blue-500 rounded-full px-3 py-1 text-sm font-semibold">
             {category}

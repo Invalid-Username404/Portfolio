@@ -78,19 +78,3 @@ body {
     transform: scale(1.05);
   }
 }
-
-.group:hover {
-  animation: scaleUp 0.3s ease-out forwards;
-}
-
-.group:hover .group-hover\:scale-110 {
-  transform: scale(1.1);
-}
-
-.group:hover .group-hover\:opacity-80 {
-  opacity: 0.8;
-}
-
-.group:hover .group-hover\:translate-y-\[-10px\] {
-  transform: translateY(-10px);
-}
