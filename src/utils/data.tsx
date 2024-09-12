@@ -36,12 +36,11 @@ export const portfolioData = {
   ],
   projects: [
     {
-      name: "Youtube Displayer",
-      description:
-        "A Youtube-like app that allows users to search for videos and watch them.",
-      image: "/youtube-displayer.png",
-      link: "https://youtube-displayer.vercel.app/",
-      source: "https://github.com/Invalid-Username404/Youtube-Displayer",
+      name: "Portfolio",
+      description: "The site you are currently on!",
+      image: "/portfolio.png",
+      link: "https://valid-portfolio.vercel.app/",
+      source: "https://github.com/Invalid-Username404/Portfolio",
       category: "Web App",
     },
 
@@ -55,24 +54,6 @@ export const portfolioData = {
       category: "Web App",
     },
     {
-      name: "Personal Web Page",
-      description:
-        "A personal website to introduce myself and showcase my projects and achievements.",
-      image: "/personal-web-page.png",
-      link: "https://invalid-portfolio.vercel.app/",
-      source: "https://github.com/Invalid-Username404/Personal-Web-Page",
-      category: "Web App",
-    },
-    {
-      name: "Gotham Products",
-      description:
-        "A small website for FreeCodeCamp Responsive Web Design Certification",
-      image: "/gotham-products.png",
-      link: "https://product-landing-page-moralist208.vercel.app/",
-      source: "https://github.com/Invalid-Username404/Product-Landing-Page",
-      category: "Web App",
-    },
-    {
       name: "Cryptonian",
       description:
         "An website for cryptocurrencies, their News, Rankings, and statistics.",
@@ -82,14 +63,24 @@ export const portfolioData = {
       category: "Web App",
     },
     {
-      name: "Survey Form",
+      name: "Youtube Displayer",
       description:
-        "A small website for FreeCodeCamp Responsive Web Design Certification",
-      image: "/survey-form.png",
-      link: "https://survey-form-moralist208.vercel.app/",
-      source: "https://github.com/Invalid-Username404/Survey-Form",
+        "A Youtube-like app that allows users to search for videos and watch them.",
+      image: "/youtube-displayer.png",
+      link: "https://youtube-displayer.vercel.app/",
+      source: "https://github.com/Invalid-Username404/Youtube-Displayer",
       category: "Web App",
     },
+
+    {
+      name: "Portfolio-v1",
+      description: "My first portfolio website.",
+      image: "/portfolio-v1.png",
+      link: "https://portfolio-v1-3368.vercel.app/",
+      source: "https://github.com/Invalid-Username404/Portfolio-v1",
+      category: "Web App",
+    },
+
     {
       name: "The Threader",
       description:
@@ -97,6 +88,35 @@ export const portfolioData = {
       image: "/the-threader.png",
       link: "https://the-threader.vercel.app/",
       source: "https://github.com/Invalid-Username404/The-Threader",
+      category: "Web App",
+    },
+    {
+      name: "Personal Web Page",
+      description:
+        "A personal website to introduce myself and showcase my projects and achievements.",
+      image: "/personal-web-page.png",
+      link: "https://invalid-portfolio.vercel.app/",
+      source: "https://github.com/Invalid-Username404/Personal-Web-Page",
+      category: "Web App",
+    },
+
+    {
+      name: "Gotham Products",
+      description:
+        "A small website for FreeCodeCamp Responsive Web Design Certification",
+      image: "/gotham-products.png",
+      link: "https://product-landing-page-moralist208.vercel.app/",
+      source: "https://github.com/Invalid-Username404/Product-Landing-Page",
+      category: "Web App",
+    },
+
+    {
+      name: "Survey Form",
+      description:
+        "A small website for FreeCodeCamp Responsive Web Design Certification",
+      image: "/survey-form.png",
+      link: "https://survey-form-moralist208.vercel.app/",
+      source: "https://github.com/Invalid-Username404/Survey-Form",
       category: "Web App",
     },
 
