@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { SvgIcons } from "./SvgIcons";
 
 interface ProjectCardProps {
@@ -23,17 +22,25 @@ export function ProjectCard({
   index,
 }: ProjectCardProps) {
   return (
-    <motion.div
-      className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-[400px]"
-      whileHover={{ y: -5 }}
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3, delay: index * 0.1 }}
+    <div
+      className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-[400px] group"
+      style={{
+        opacity: 0,
+        transform: "translateY(50px)",
+        animation: `fadeInUp 0.5s ease-out ${index * 0.1}s forwards`,
+      }}
     >
-      <div className="relative h-48">
-        <Image src={image} alt={name} layout="fill" objectFit="cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60"></div>
-        <div className="absolute bottom-0 left-0 p-4 text-white">
+      <div className="relative h-48 overflow-hidden">
+        <Image
+          src={image}
+          alt={name}
+          layout="fill"
+          objectFit="cover"
+          priority={index < 3}
+          className="transition-transform duration-300 group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-80"></div>
+        <div className="absolute bottom-0 left-0 p-4 text-white transform transition-transform duration-300 group-hover:translate-y-[-10px]">
           <h3 className="text-xl font-semibold mb-1">{name}</h3>
           <span className="inline-block bg-blue-500 rounded-full px-3 py-1 text-sm font-semibold">
             {category}
@@ -63,6 +70,6 @@ export function ProjectCard({
           </Link>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
