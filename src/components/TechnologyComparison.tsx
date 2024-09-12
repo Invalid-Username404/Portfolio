@@ -9,10 +9,10 @@ import {
   Title,
   Tooltip,
   Legend,
+  ScaleOptions,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import { motion } from "framer-motion";
-import { Chart, ChartOptions } from "chart.js";
 
 ChartJS.register(
   CategoryScale,
@@ -171,17 +171,25 @@ export function TechnologyComparison({
                     },
                   },
                   onResize: (
-                    chart: Chart<"bar", number[], string>,
+                    chart: ChartJS<"bar", number[], string>,
                     size: { width: number; height: number }
                   ) => {
                     // Adjust font size based on chart width
                     const fontSize = size.width < 600 ? 10 : 12;
-                    (chart.options.scales?.x as any).ticks.font = {
-                      size: fontSize,
+                    const scales = chart.options.scales as {
+                      x: ScaleOptions;
+                      y: ScaleOptions;
                     };
-                    (chart.options.scales?.y as any).ticks.font = {
-                      size: fontSize,
-                    };
+                    if (scales.x && scales.y) {
+                      scales.x.ticks = {
+                        ...(scales.x.ticks || {}),
+                        font: { size: fontSize },
+                      };
+                      scales.y.ticks = {
+                        ...(scales.y.ticks || {}),
+                        font: { size: fontSize },
+                      };
+                    }
                   },
                 }}
               />
