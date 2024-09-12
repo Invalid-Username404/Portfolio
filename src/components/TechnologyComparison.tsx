@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import dynamic from "next/dynamic";
 import {
   Chart as ChartJS,
@@ -12,6 +12,7 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import { motion } from "framer-motion";
+import { Chart, ChartOptions } from "chart.js";
 
 ChartJS.register(
   CategoryScale,
@@ -45,34 +46,34 @@ export function TechnologyComparison({
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      try {
-        const response = await fetch(
-          `/api/technology-data?technology=${encodeURIComponent(technology)}`,
-          {
-            headers: {
-              "Cache-Control": "max-age=3600", // Cache for 1 hour
-            },
-          }
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch data");
+  const fetchData = useCallback(async () => {
+    setIsLoading(true);
+    try {
+      const response = await fetch(
+        `/api/technology-data?technology=${encodeURIComponent(technology)}`,
+        {
+          headers: {
+            "Cache-Control": "max-age=3600", // Cache for 1 hour
+          },
         }
-        const data = await response.json();
-        setTechnologyData(data);
-      } catch (err) {
-        setError("Error fetching data");
-      } finally {
-        setIsLoading(false);
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
       }
-    };
-
-    fetchData();
+      const data = await response.json();
+      setTechnologyData(data);
+    } catch (err) {
+      setError("Error fetching data");
+    } finally {
+      setIsLoading(false);
+    }
   }, [technology]);
 
-  const getBackgroundColor = (tech: string) => {
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
+  const getBackgroundColor = useCallback((tech: string) => {
     const techMap: { [key: string]: string } = {
       "Next.js": "next",
       "Node.js": "node",
@@ -86,7 +87,7 @@ export function TechnologyComparison({
       .getPropertyValue(`--skill-${lowerTech}-background`)
       .trim();
     return cssVar || "rgba(75, 192, 192, 0.6)"; // Fallback color if the CSS variable is not found
-  };
+  }, []);
 
   const chartData = technologyData
     ? {
@@ -130,7 +131,12 @@ export function TechnologyComparison({
       ) : (
         <>
           <p className="mb-4">{technologyData.description}</p>
-          <div className="h-64 md:h-80 lg:h-96" aria-hidden="true">
+          <div
+            className="h-64 md:h-80 lg:h-96"
+            aria-hidden="true"
+            role="img"
+            aria-label={`Bar chart comparing ${technology} with other technologies`}
+          >
             {chartData && (
               <ChartComponent
                 data={chartData}
@@ -164,6 +170,19 @@ export function TechnologyComparison({
                       },
                     },
                   },
+                  onResize: (
+                    chart: Chart<"bar", number[], string>,
+                    size: { width: number; height: number }
+                  ) => {
+                    // Adjust font size based on chart width
+                    const fontSize = size.width < 600 ? 10 : 12;
+                    (chart.options.scales?.x as any).ticks.font = {
+                      size: fontSize,
+                    };
+                    (chart.options.scales?.y as any).ticks.font = {
+                      size: fontSize,
+                    };
+                  },
                 }}
               />
             )}
@@ -186,7 +205,7 @@ export function TechnologyComparison({
 
 function SkeletonLoader() {
   return (
-    <div className="animate-pulse">
+    <div className="animate-pulse" aria-label="Loading chart data">
       <div className="h-4 bg-gray-200 rounded w-3/4 mb-4"></div>
       <div className="h-64 md:h-80 lg:h-96 bg-gray-200 rounded"></div>
     </div>

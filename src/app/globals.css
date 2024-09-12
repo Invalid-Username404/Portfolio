@@ -32,12 +32,14 @@
   --skill-laravel-background: #ff2d20;
   --skill-spring-boot-background: #6db33f;
   --skill-django-background: #092e20;
-  --skill-fastify-background: #3d2727;
+  --skill-fastify-background: #8d1164;
   --skill-nestjs-background: #e0234e;
   --skill-amazon-dynamodb-background: #4053d6;
   --skill-oracle-nosql-database-background: #f80000;
   --skill-selenium-background: #43b02a;
   --skill-puppeteer-background: #40b5a4;
+  --frame-outer: #8b4513;
+  --frame-inner: #d2691e;
 }
 
 /* @media (prefers-color-scheme: dark) {
