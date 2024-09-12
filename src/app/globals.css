@@ -9,20 +9,35 @@
   /* Skill colors */
   --skill-color: #ffffff;
   /* Skill background colors */
-  --skill-javascript-background: #fbbf24;
-  --skill-typescript-background: #2563eb;
-  --skill-react-background: #0ea5e9;
+  --skill-javascript-background: #f7df1e;
+  --skill-typescript-background: #3178c6;
+  --skill-react-background: #61dafb;
   --skill-next-background: #000000;
-  --skill-tailwind-background: #0ea5e9;
-  --skill-node-background: #16a34a;
-  --skill-express-background: #1f2937;
-  --skill-mongodb-background: #22c55e;
-  --skill-cypress-background: #374151;
-  --skill-postgresql-background: #60a5fa;
-  --skill-git-background: #ea580c;
-  --skill-github-background: #111827;
-  --skill-redux-background: #9333ea;
-  --skill-jest-background: #dc2626;
+  --skill-tailwind-background: #06b6d4;
+  --skill-node-background: #339933;
+  --skill-express-background: #000000;
+  --skill-mongodb-background: #47a248;
+  --skill-cypress-background: #17202c;
+  --skill-postgresql-background: #336791;
+  --skill-git-background: #f05032;
+  --skill-github-background: #181717;
+  --skill-redux-background: #764abc;
+  --skill-jest-background: #c21325;
+  /* New colors for comparison technologies */
+  --skill-python-background: #3776ab;
+  --skill-java-background: #007396;
+  --skill-angular-background: #dd0031;
+  --skill-vue-background: #4fc08d;
+  --skill-nuxt-background: #00dc82;
+  --skill-laravel-background: #ff2d20;
+  --skill-spring-boot-background: #6db33f;
+  --skill-django-background: #092e20;
+  --skill-fastify-background: #3d2727;
+  --skill-nestjs-background: #e0234e;
+  --skill-amazon-dynamodb-background: #4053d6;
+  --skill-oracle-nosql-database-background: #f80000;
+  --skill-selenium-background: #43b02a;
+  --skill-puppeteer-background: #40b5a4;
 }
 
 /* @media (prefers-color-scheme: dark) {

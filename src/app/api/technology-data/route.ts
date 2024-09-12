@@ -36,7 +36,7 @@ export async function GET(request: Request) {
         "A React framework capable of server-side rendering and static site generation.",
       category: "Full-Stack Frameworks",
       comparisonData: {
-        labels: ["Next.js", "Nuxt.js", "Laravel"],
+        labels: ["Next", "Nuxt", "Laravel"],
         data: [40.4, 19.6, 12.5], // Based on popularity in full-stack and server-side frameworks
       },
     },
@@ -45,7 +45,7 @@ export async function GET(request: Request) {
         "A JavaScript runtime built on Chrome's V8 JavaScript engine.",
       category: "Backend Technologies",
       comparisonData: {
-        labels: ["Node.js", "Spring Boot", "Django"],
+        labels: ["Node", "Spring Boot", "Django"],
         data: [42.73, 32.1, 20.9], // Reflecting current server-side tech trends
       },
     },

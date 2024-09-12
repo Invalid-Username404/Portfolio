@@ -47,7 +47,7 @@ const config: Config = {
   safelist: [
     {
       pattern:
-        /bg-skillBg-(javascript|typescript|react|next|tailwind|node|express|mongodb|cypress|postgresql|git|github|redux|jest)/,
+        /bg-skillBg-(javascript|typescript|react|next|tailwind|node|express|mongodb|cypress|postgresql|git|github|redux|jest|python|java|angular|vue|nuxt|laravel|spring-boot|django|fastify|nestjs|amazon-dynamodb|oracle-nosql-database|selenium|puppeteer)/,
     },
   ],
   plugins: [],

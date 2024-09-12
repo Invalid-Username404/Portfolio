@@ -72,6 +72,22 @@ export function TechnologyComparison({
     fetchData();
   }, [technology]);
 
+  const getBackgroundColor = (tech: string) => {
+    const techMap: { [key: string]: string } = {
+      "Next.js": "next",
+      "Node.js": "node",
+      "Spring Boot": "spring-boot",
+      "Amazon DynamoDB": "amazon-dynamodb",
+      "Oracle NoSQL Database": "oracle-nosql-database",
+    };
+
+    const lowerTech = techMap[tech] || tech.toLowerCase().replace(/\s+/g, "-");
+    const cssVar = getComputedStyle(document.documentElement)
+      .getPropertyValue(`--skill-${lowerTech}-background`)
+      .trim();
+    return cssVar || "rgba(75, 192, 192, 0.6)"; // Fallback color if the CSS variable is not found
+  };
+
   const chartData = technologyData
     ? {
         labels: technologyData.comparisonData.labels,
@@ -79,16 +95,10 @@ export function TechnologyComparison({
           {
             label: "Usage (%)",
             data: technologyData.comparisonData.data,
-            backgroundColor: [
-              "rgba(75, 192, 192, 0.6)",
-              "rgba(255, 99, 132, 0.6)",
-              "rgba(255, 206, 86, 0.6)",
-            ],
-            borderColor: [
-              "rgba(75, 192, 192, 1)",
-              "rgba(255, 99, 132, 1)",
-              "rgba(255, 206, 86, 1)",
-            ],
+            backgroundColor:
+              technologyData.comparisonData.labels.map(getBackgroundColor),
+            borderColor:
+              technologyData.comparisonData.labels.map(getBackgroundColor),
             borderWidth: 1,
           },
         ],
@@ -105,7 +115,7 @@ export function TechnologyComparison({
     >
       <h3
         id={`${technology}-comparison`}
-        className="text-xl font-semibold mb-2"
+        className={`text-xl font-semibold mb-2 w-fit text-skillColor bg-skillBg-${technology.toLowerCase()} p-2 rounded-md text-center`}
       >
         {technology} Comparison
       </h3>
