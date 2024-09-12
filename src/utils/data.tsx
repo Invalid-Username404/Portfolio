@@ -176,5 +176,12 @@ export const portfolioData = {
       ariaLabel: "LinkedIn",
       alt: "LinkedIn",
     },
+    {
+      name: "Gmail",
+      link: "mailto:mohamedibrahim282920@gmail.com",
+      icon: "/gmail.svg",
+      ariaLabel: "Gmail",
+      alt: "Gmail",
+    },
   ],
 };

@@ -1,6 +1,6 @@
 import { portfolioData } from "@/utils/data";
 import Link from "next/link";
-import { SvgIcons } from "./SvgIcons";
+import Image from "next/image";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -10,14 +10,25 @@ export function Footer() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-center md:text-left mb-4 md:mb-0">
-            &copy; {currentYear} {portfolioData.name}. All rights reserved, I
-            guess
+            &copy; {currentYear} {portfolioData.name}. All rights reserved.
           </p>
           <nav aria-label="Social media links">
             <ul className="flex justify-center space-x-4">
               {portfolioData.onLinePresence.map((presence) => (
                 <li key={presence.name}>
-                  <SocialLink {...presence} />
+                  <Link
+                    href={presence.link}
+                    aria-label={presence.ariaLabel}
+                    target="_blank"
+                  >
+                    <Image
+                      src={presence.icon}
+                      alt={presence.alt}
+                      width={30}
+                      height={30}
+                      className="hover:scale-110 transition-transform duration-300"
+                    />
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -25,27 +36,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  );
-}
-
-interface SocialLinkProps {
-  name: string;
-  link: string;
-  ariaLabel: string;
-}
-
-function SocialLink({ name, link, ariaLabel }: SocialLinkProps) {
-  return (
-    <Link
-      href={link}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={ariaLabel}
-      className="text-white hover:text-gray-300 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white 
-      "
-    >
-      <span className="sr-only">{name}</span>
-      <SvgIcons name={name} />
-    </Link>
   );
 }

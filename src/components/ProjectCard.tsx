@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { SvgIcons } from "./SvgIcons";
 
 interface ProjectCardProps {
   name: string;
@@ -54,19 +53,33 @@ export function ProjectCard({
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-500 hover:text-blue-700 transition-colors duration-300 flex items-center"
+            className="bg-blue-500 hover:bg-blue-700 p-2 text-white rounded-md transition-colors duration-300 flex items-center"
+            aria-label={`View ${name} project`}
           >
-            <SvgIcons name="ExternalLink" />
-            <span className="ml-2">View Project</span>
+            <span className="mr-2">View Project</span>
+            <Image
+              src="/external-link.svg"
+              alt="external-link"
+              width={20}
+              height={20}
+              aria-hidden="true"
+            />
           </Link>
           <Link
             href={source}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-500 hover:text-gray-700 transition-colors duration-300 flex items-center"
+            aria-label={`View ${name} source code`}
+            className="bg-purple-500 hover:bg-purple-700 p-2 text-white rounded-md transition-colors duration-300 flex items-center"
           >
-            <SvgIcons name="SourceCode" />
-            <span className="ml-2">Source Code</span>
+            <span className="mr-2">Source Code</span>
+            <Image
+              src="/code.svg"
+              alt="Code"
+              width={24}
+              height={24}
+              aria-hidden="true"
+            />
           </Link>
         </div>
       </div>
