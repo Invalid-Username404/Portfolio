@@ -53,15 +53,7 @@ export const portfolioData = {
       source: "https://github.com/Invalid-Username404/Dashboard",
       category: "Web App",
     },
-    {
-      name: "Cryptonian",
-      description:
-        "An website for cryptocurrencies, their News, Rankings, and statistics.",
-      image: "/cryptonian.png",
-      link: "https://cryptonian-mu.vercel.app/",
-      source: "https://github.com/Invalid-Username404/Cryptonian",
-      category: "Web App",
-    },
+
     {
       name: "Youtube Displayer",
       description:
@@ -109,7 +101,15 @@ export const portfolioData = {
       source: "https://github.com/Invalid-Username404/Product-Landing-Page",
       category: "Web App",
     },
-
+    {
+      name: "Cryptonian",
+      description:
+        "An website for cryptocurrencies, their News, Rankings, and statistics.",
+      image: "/cryptonian.png",
+      link: "https://cryptonian-mu.vercel.app/",
+      source: "https://github.com/Invalid-Username404/Cryptonian",
+      category: "Web App",
+    },
     {
       name: "Survey Form",
       description:
