@@ -45,6 +45,15 @@ export const portfolioData = {
     },
 
     {
+      name: "Marses Dashboard",
+      description:
+        "A dashboard for Marses Robotics. A leading company in AI, Robotics, & Industrial Automation solutions in the Middle East, based in Egypt with UAE",
+      image: "/marses-dashboard.png",
+      link: "https://marses-dashboard.vercel.app/dashboard",
+      source: "https://github.com/Invalid-Username404/Dasboard_2",
+      category: "Web App",
+    },
+    {
       name: "Cyparta Dashboard",
       description:
         "A dashboard for Cyparta, software company based on a talented and passionate team to learning and adds value to the software development region",
