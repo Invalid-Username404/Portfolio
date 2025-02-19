@@ -142,6 +142,14 @@ export const portfolioData = {
   ],
   certifications: [
     {
+      name: "React Web Developer",
+      organization: "Information Technology Institute",
+      logo: "/iti-logo.png",
+      issueDate: "February 2025",
+      credentialUrl:
+        "https://drive.google.com/file/d/1Loltrti76aAz-z8lmfUJBSq5LJQznIuL/view",
+    },
+    {
       name: "Responsive Web Design",
       organization: "FreeCodeCamp",
       logo: "/freecodecamp-logo.png",
