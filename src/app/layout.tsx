@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Suspense } from "react";
 import { Caveat } from "next/font/google";
 import Script from "next/script";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -68,6 +69,7 @@ export default function RootLayout({
         <Suspense fallback={<div>Loading...</div>}>
           <Footer />
         </Suspense>
+        <GoogleAnalytics gaId="G-MTE962SSF8" />
       </body>
     </html>
   );
