@@ -5,6 +5,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Suspense } from "react";
 import { Caveat } from "next/font/google";
+import Script from "next/script";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -20,11 +21,7 @@ const caveat = Caveat({
   subsets: ["latin"],
   variable: "--font-caveat",
 });
-export const viewport = {
-  width: "device-width",
-  initialScale: 1,
-  minimumScale: 1,
-};
+
 export const metadata: Metadata = {
   title: "Mohamed Ibrahim - Web Developer Portfolio",
   description:
@@ -36,14 +33,33 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${caveat.variable}`}
     >
+      <head>
+        {/* Google Analytics Script loaded after the page is interactive */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-MTE962SSF8"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-MTE962SSF8');
+            `,
+          }}
+        />
+      </head>
       <body className="flex flex-col min-h-screen antialiased">
         <Suspense fallback={<div>Loading...</div>}>
           <Header />
