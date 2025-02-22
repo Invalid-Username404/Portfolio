@@ -69,7 +69,7 @@ export default function RootLayout({
         <Suspense fallback={<div>Loading...</div>}>
           <Footer />
         </Suspense>
-        <GoogleAnalytics gaId="G-MTE962SSF8" />
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
       </body>
     </html>
   );
